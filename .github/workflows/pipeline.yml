@@ -46,8 +46,8 @@ jobs:
 
       - name: Print metrics
         run: |
-          echo "Model Metrics:"
-          cat output/metrics.json
+          echo "## Model Metrics" >> $GITHUB_STEP_SUMMARY
+          cat output/metrics.json >> $GITHUB_STEP_SUMMARY
 
   build_push:
     runs-on: ubuntu-latest
