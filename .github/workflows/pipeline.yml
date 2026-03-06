@@ -35,7 +35,7 @@ jobs:
 
       - name: Train model
         run: python src/train.py
-
+      
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -44,6 +44,10 @@ jobs:
             output/model.pkl
             output/metrics.json
 
+      - name: Print metrics
+        run: |
+          echo "Model Metrics:"
+          cat output/metrics.json
 
   build_push:
     runs-on: ubuntu-latest
