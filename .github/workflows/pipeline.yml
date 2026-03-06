@@ -37,11 +37,13 @@ jobs:
       run: |
         python src/train.py
 
-    - name: Upload metrics
-      uses: actions/upload-artifact@v3
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v4
       with:
-        name: metrics
-        path: metrics.json
+        name: model-artifacts
+        path: |
+          output/model.pkl
+          output/metrics.json
 
     - name: Login to Docker Hub
       run: |
